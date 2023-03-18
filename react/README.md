@@ -82,15 +82,18 @@ This style guide is mostly based on the standards that are currently prevalent i
 ## Naming
 
   - **Extensions**: Use `.jsx` extension for React components. eslint: [`react/jsx-filename-extension`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md)
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
+  - **Filename**: File names must be all lowercase and may include underscores (_) or dashes (-), but no additional punctuation. Follow the convention that your project uses. E.g., `reservation-card.jsx`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
     ```jsx
     // bad
     import reservationCard from './ReservationCard';
 
-    // good
-    import ReservationCard from './ReservationCard';
+    // bad
+    import ReservationCard from './reservationCard';
+
+    // goog
+    import ReservationCard from './reservation-card';
 
     // bad
     const ReservationItem = <ReservationCard />;
@@ -99,17 +102,17 @@ This style guide is mostly based on the standards that are currently prevalent i
     const reservationItem = <ReservationCard />;
     ```
 
-  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+  - **Component Naming**: Use the filename as the component name. For example, `reservation-card.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
 
     ```jsx
     // bad
-    import Footer from './Footer/Footer';
+    import Footer from './footer/footer';
 
     // bad
-    import Footer from './Footer/index';
+    import Footer from './footer/index';
 
     // good
-    import Footer from './Footer';
+    import Footer from './footer';
     ```
 
   - **Higher-order Component Naming**: Use a composite of the higher-order component’s name and the passed-in component’s name as the `displayName` on the generated component. For example, the higher-order component `withFoo()`, when passed a component `Bar` should produce a component with a `displayName` of `withFoo(Bar)`.
